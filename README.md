@@ -1,4 +1,4 @@
-# 07-fundamentals-comp-api
+# VUE Fundamentals - Composition API
 
 ## Project setup
 ```
