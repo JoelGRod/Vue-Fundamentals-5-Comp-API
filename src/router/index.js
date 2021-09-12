@@ -8,6 +8,16 @@ const routes = [
     component: Home
   },
   {
+    path: '/counter',
+    name: 'Counter',
+    component: () => import(/* webpackChunkName: "CounterPage" */ '../views/CounterPage')
+  },
+  {
+    path: '/http',
+    name: 'Http',
+    component: () => import(/* webpackChunkName: "CounterPage" */ '../views/HttpPage')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
