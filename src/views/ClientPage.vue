@@ -12,7 +12,8 @@
 </template>
 
 <script>
-import { useRoute } from 'vue-router'
+import { useRoute, onBeforeRouteLeave } from 'vue-router'
+import { watch } from "vue";
 import useClient from "../composables/useClient"
 
 export default {
@@ -23,8 +24,21 @@ export default {
         const { 
             client, 
             isLoading, 
-            errorMsg 
+            errorMsg,
+            searchClient 
         } = useClient( route.params.id )
+
+        watch(
+            () => route.params.id,
+            ( value, prevValue ) => {
+                searchClient( route.params.id )
+            }
+        )
+
+        onBeforeRouteLeave(() => {
+            const answer = window.confirm('Are you sure you want to leave?')
+            if( !answer ) return false
+        })
 
         return {
             client,

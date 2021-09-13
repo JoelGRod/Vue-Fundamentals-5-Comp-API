@@ -6,7 +6,10 @@ const useClient = ( clientId = '1' ) => {
     const isLoading = ref(false)
     const errorMsg = ref()
 
-    const searchClient = async () => {
+    const searchClient = async ( clientId ) => {
+
+        if( !clientId ) return
+
         isLoading.value = true
         client.value = null
 
@@ -17,8 +20,6 @@ const useClient = ( clientId = '1' ) => {
 
             client.value = data.data
             errorMsg.value = null
-
-            console.log(client.value)
         } catch (error) {
             errorMsg.value = 'No Client found'
         }
@@ -26,12 +27,14 @@ const useClient = ( clientId = '1' ) => {
         isLoading.value = false
     }
 
-    searchClient()
+    searchClient(clientId)
 
     return {
         client,
         isLoading,
         errorMsg,
+        // Public methods
+        searchClient
     }
 }
 
