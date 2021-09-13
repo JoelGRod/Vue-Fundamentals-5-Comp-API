@@ -2,10 +2,10 @@ import { ref } from "vue"
 import axios from "axios"
 
 const useUsers = () => {
-    const users = ref([])
-    const isLoading = ref(true)
+    const users       = ref([])
+    const isLoading   = ref(true)
     const currentPage = ref(1)
-    const errorMsg = ref()
+    const errorMsg    = ref()
 
     const getUsers = async (page = 1) => {
       if (page <= 0) page = 1
