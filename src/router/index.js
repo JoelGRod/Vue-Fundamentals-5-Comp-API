@@ -10,12 +10,22 @@ const routes = [
   {
     path: '/counter',
     name: 'Counter',
-    component: () => import(/* webpackChunkName: "CounterPage" */ '../views/CounterPage')
+    component: () => import(/* webpackChunkName: "counter-page" */ '../views/CounterPage')
   },
   {
     path: '/http',
     name: 'Http',
-    component: () => import(/* webpackChunkName: "CounterPage" */ '../views/HttpPage')
+    component: () => import(/* webpackChunkName: "http-page" */ '../views/HttpPage')
+  },
+  {
+    path: '/search-client',
+    name: 'SearchClient',
+    component: () => import(/* webpackChunkName: "search-client-page" */ '../views/SearchClientPage')
+  },
+  {
+    path: '/client/:id',
+    name: 'Client',
+    component: () => import(/* webpackChunkName: "client-page" */ '../views/ClientPage')
   },
   {
     path: '/about',

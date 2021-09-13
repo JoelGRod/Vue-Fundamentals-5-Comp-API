@@ -1,8 +1,9 @@
 <template>
   <div id="nav">
     <router-link to="/">Reactive vs Ref</router-link> |
-    <router-link :to="{ name: 'Counter'}">Counter</router-link> |
-    <router-link :to="{ name: 'Http'}">Http Requests</router-link> |
+    <router-link :to="{ name: 'Counter' }">Counter</router-link> |
+    <router-link :to="{ name: 'Http' }">Http Requests</router-link> |
+    <router-link :to="{ name: 'SearchClient' }">Search Client</router-link> |
     <router-link to="/about">Lifecycle Hooks</router-link>
   </div>
 
