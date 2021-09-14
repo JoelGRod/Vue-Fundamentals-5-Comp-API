@@ -28,6 +28,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "client-page" */ '../views/ClientPage')
   },
   {
+    path: '/to-do-list',
+    name: 'TodoList',
+    component: () => import(/* webpackChunkName: "to-do-list" */ '../views/TodoVuex')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
