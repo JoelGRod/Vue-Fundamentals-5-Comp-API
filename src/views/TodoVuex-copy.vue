@@ -33,29 +33,28 @@
 </template>
 
 <script>
-import useTodo from "../composables/useTodo"
+import { computed, ref } from "vue"
+import { useStore } from "vuex"
 
 export default {
 
   setup() {
-    const {
-      // Properties
-      currentTab,
-      // Methods
-      toggleTodo,
-      // Getters
-      getPending,
-      getTodos
-    } = useTodo()
+    const store = useStore()
+
+    const currentTab = ref('all')
+
+    
 
     return {
       // Properties
       currentTab,
       // Methods
-      toggleTodo,
+      toggleTodo: ( id ) => store.commit('toggleTodo', id),
       // Getters
-      getPending,
-      getTodos
+      getPending: computed(() => store.getters['getPendingTodos']),
+      getAll: computed(() => store.getters['getAllTodos']),
+      getCompleted: computed(() => store.getters['getCompletedTodos']),
+      getTodos: computed(() => store.getters['getTodosByTab'](currentTab.value))
     }
   }
 }
