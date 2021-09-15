@@ -33,6 +33,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "to-do-list" */ '../views/TodoVuex')
   },
   {
+    path: '/custom-slots',
+    name: 'CustomSlots',
+    component: () => import(/* webpackChunkName: "custom-slots" */ '../views/CustomSlotsPage')
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting

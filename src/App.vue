@@ -5,6 +5,7 @@
     <router-link :to="{ name: 'Http' }">Http Requests</router-link> |
     <router-link :to="{ name: 'SearchClient' }">Search Client</router-link> |
     <router-link :to="{ name: 'TodoList' }">To Do List</router-link> |
+    <router-link :to="{ name: 'CustomSlots' }">Custom Slots</router-link> |
     <router-link to="/about">Lifecycle Hooks</router-link>
   </div>
 
