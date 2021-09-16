@@ -6,6 +6,9 @@
       <slot name="body"></slot>
       <slot name="footer"></slot>
 
+      <!-- scoped slots -->
+      <slot name="exposed" :newTitle="newTitle" hello="hello"></slot>
+
       <!-- <slot></slot> -->
       <!-- <slot>
         <p class="center">This appers when we don't have context</p>
@@ -20,12 +23,17 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: false,
     },
   },
 
   setup(props, context) {
-    console.log(props, context)
+    // console.log(props, context)
+
+    return {
+      // Public properties
+      newTitle: props.title?.toUpperCase()
+    }
   },
 };
 </script>

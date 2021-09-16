@@ -13,6 +13,11 @@
       <h2>Modal Title</h2>
     </template>
 
+    <!-- Scoped Slots -->
+    <template v-slot:exposed="{ newTitle }">
+      <h2>{{ newTitle }}</h2>
+    </template>
+
     <!-- <h2>Modal Title</h2>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       <button>Exit</button> -->
