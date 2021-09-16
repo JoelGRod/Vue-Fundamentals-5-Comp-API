@@ -1,16 +1,17 @@
 <template>
   <h1>HTTP Requests</h1>
-  <h2 v-if="isLoading" >Please Wait...</h2>
+  <h2 v-if="isLoading">Please Wait...</h2>
   <h3 v-else>Users</h3>
-  <h5 v-if="errorMsg" >{{ errorMsg }}</h5>
+  <h5 v-if="errorMsg">{{ errorMsg }}</h5>
 
   <div v-if="users.length > 0">
-    <ul>
-      <li v-for="{ first_name, last_name, email, id } in users" :key="id">
-        <h4>{{ first_name }}, {{ last_name }}</h4>
-        <h6>{{ email }}</h6>
-      </li>
-    </ul>
+    <UserListComponent 
+      :users="users"
+      v-slot="{ user }">
+
+        <h4> {{ user.first_name }} {{ user.last_name }} </h4>
+        <h6> {{ user.email }} </h6>
+    </UserListComponent>
   </div>
 
   <button @click="prevPage">Before</button>
@@ -19,26 +20,26 @@
 </template>
 
 <script>
-import useUsers from "../composables/useUsers"
+import useUsers from "../composables/useUsers";
+import UserListComponent from "../components/UserListComponent";
 
 export default {
+  components: {
+    UserListComponent,
+  },
+
   setup() {
-    const { 
-      isLoading, 
-      errorMsg, 
-      users, 
-      currentPage, 
-      nextPage, 
-      prevPage } = useUsers()
-    
+    const { isLoading, errorMsg, users, currentPage, nextPage, prevPage } =
+      useUsers();
+
     return {
-      isLoading, 
-      errorMsg, 
-      users, 
-      currentPage, 
-      nextPage, 
-      prevPage
-    }
+      isLoading,
+      errorMsg,
+      users,
+      currentPage,
+      nextPage,
+      prevPage,
+    };
   },
 };
 </script>
